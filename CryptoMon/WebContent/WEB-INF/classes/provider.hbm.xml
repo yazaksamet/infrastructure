@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="ynwa.currency.entity.Provider" table="Providers">
+        <id name="id" column="id">
+            <generator class="assigned"/>
+        </id>
+        <property name="name">
+            <column name="name"/>
+        </property>
+        <property name="url">
+            <column name="url"/>
+        </property>
+        <property name="reloadTime" type="int">
+            <column name="reload_time"/>
+        </property>
+        <property name="updateDate" type="timestamp" column="update_date"/>
+    </class>
+</hibernate-mapping>

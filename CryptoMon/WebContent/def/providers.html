@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Provider Management</title>
+<!-- Theme CSS -->
+<link rel="stylesheet" href="../css/bootstrap.css">
+<!-- Main CSS -->
+<link rel="stylesheet" href="../css/style.css">
+<!-- Elements CSS -->
+<link rel="stylesheet" href="../css/elements.css">
+<!-- Theme Color -->
+<link rel="stylesheet" href="../css/theme-color.css" type="text/css" >
+<!--[if lt IE 9]>
+	<script src="docs-assets/js/ie8-responsive-file-warning.js"></script>
+	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+	<script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+
+	<div style='text-align:center'><a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode"><img src="http://storage.ie6countdown.com/assets/100/images/banners/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today." /></a></div>  
+  <![endif]-->
+
+</head>
+<body>
+<div class="se-pre-con"></div>
+
+<div id="cd-nav"> <a href="#0" class="cd-nav-trigger">Menu <span></span></a>
+<div id="cd-pop-form">
+      <div class="cd-wrap-form has-transitions is-visible">
+        <!-- contact form -->
+        <h3>Provider Add/Update</h3>
+        <form class="form1">
+          <fieldset>
+          <label class="name col-md-12">
+          	<span>Name:</span><input type="text" value="" id="ProviderName">
+          </label>
+          <label class="email col-md-12">
+          	<span>Url:</span><input type="text" value="" id="ProviderUrl">
+          </label>
+          <label class="col-md-12">
+          	<span>ReloadTime:</span><input type="text" value="" id="ReloadTime">
+          </label>
+          <div class="clear"></div>
+          <div class="link-form col-md-12"><a id="ProviderSubmit" class="flat sm purple" href="#" data-type="submit">Submit</a> <a class="flat sm green" href="#" data-type="reset">Clear</a> </div>
+          </fieldset>
+        </form>
+      </div>
+    </div>
+</div>
+<div class="page-wrapper">
+	<div class="">
+		<div class="container">
+	        <div id="MessagePanel"></div>
+	        <div class="row">
+	          <div class="col-md-12" id="ProviderGrid">
+<!-- 	          	<table class="products-table"> -->
+<!-- 	              <thead> -->
+<!-- 	                <tr> -->
+<!-- 	                  <th>SERVER</th> -->
+<!-- 	                  <th>CPU</th> -->
+<!-- 	                  <th>RAM</th> -->
+<!-- 	                  <th>HDD</th> -->
+<!-- 	                  <th>BANDWIDTH</th> -->
+<!-- 	                  <th>COST</th> -->
+<!-- 	                  <th>ORDER</th> -->
+<!-- 	                </tr> -->
+<!-- 	              </thead> -->
+<!-- 	              <tbody> -->
+<!-- 	                <tr> -->
+<!-- 	                  <td>Intel Core 2 Duo E 6600</td> -->
+<!-- 	                  <td>2×2.8GHz</td> -->
+<!-- 	                  <td>4GB</td> -->
+<!-- 	                  <td>2×500 GB 7.2K</td> -->
+<!-- 	                  <td>10TB</td> -->
+<!-- 	                  <td>$510/mo</td> -->
+<!-- 	                  <td><span><a href="">ORDER NOW</a></span> </td> -->
+<!-- 	                </tr> -->
+<!-- 	                <tr> -->
+<!-- 	                  <td>2 x Intel Xeon E5335 Quad Core</td> -->
+<!-- 	                  <td>4×2.13GHz</td> -->
+<!-- 	                  <td>12GB</td> -->
+<!-- 	                  <td>2x1TB 7.2K</td> -->
+<!-- 	                  <td>10TB</td> -->
+<!-- 	                  <td>$251/mo</td> -->
+<!-- 	                  <td><span><a href="">ORDER NOW</a></span> </td> -->
+<!-- 	                </tr> -->
+<!-- 	               </tbody> -->
+<!-- 	             </table> -->
+	          </div>
+	        </div>
+	    </div>
+	</div>
+</div>
+
+<!-- Javascript -->
+<script type="text/javascript" src="../js/jquery.js"></script>
+<!-- Twitter Bootstrap -->
+<script type="text/javascript" src="../js/bootstrap.js"></script>
+<!-- Jquery UI -->
+<script type="text/javascript" src="../js/jquery-ui.js"></script>
+<!-- All Plugins -->
+<script type="text/javascript" src="../js/plugins.js"></script>
+<!-- Menu Navigation -->
+<script type="text/javascript" src="../js/owlmenu.js"></script>
+<!-- Carousels -->
+<script type="text/javascript" src="../js/owl.carousel.js"></script>
+<!--Isotop, Masonry -->
+<script type="text/javascript" src="../js/masonry.js"></script>
+<!-- Page Main  -->
+<script type="text/javascript" src="../js/core/page.js"></script>
+<!-- Ajax -->
+<script type="text/javascript" src="../js/core/AjaxCall.js"></script>
+<!-- Components -->
+<script type="text/javascript" src="../js/components/Grid.js"></script>
+<script type="text/javascript" src="../js/components/Button.js"></script>
+<script type="text/javascript" src="../js/components/AlertBox.js"></script>
+
+
+<script type="text/javascript">
+	page.Identity = "providers";
+	
+	page.PreparePage = function() {
+		if (page.Data && page.Data.providers) {
+			var gridParams = {};
+			gridParams.ContainerId = "ProviderGrid";
+			gridParams.Rows = eval(page.Data.providers);
+			gridParams.Columns = eval(page.Data.providerCols);
+			
+			gridParams.Buttons = [
+				{name: "add", color: "green", onclick: providerPage.AddProvider},
+				{name: "update", color: "grey", onclick: providerPage.UpdateProvider},
+				{name: "delete", color: "pink", onclick: providerPage.DeleteProvider}
+			];
+			
+			Grid.Initialize(gridParams);
+		}
+	};
+	
+	$(document).ready(function() { 
+		page.InitializePage();
+		
+		$('#ProviderSubmit').click(providerPage.SaveProvider);
+	});
+	
+	
+	var providerPage = {};
+	providerPage.AddProvider = function() {
+		alert("add");
+	};
+	
+	providerPage.SaveProvider = function() {
+		var params = {};
+		params.Url = page.ApplicationDomain + "providerop";
+		params.Async = false;
+		params.Method = "POST";
+		params.Data = {};
+		params.Data.id = "";
+		params.Data.name = $('#ProviderName').val();
+		params.Data.url = $('#ProviderUrl').val();
+		params.Data.reloadTime = $('#ReloadTime').val();
+		params.OnSuccess = page.InitializePage;
+		params.ShowLoading = true;
+		params.ShowAlert = true;
+		AjaxCall.Get(params);
+	};
+	
+	providerPage.UpdateProvider = function() {
+		alert("update");
+	};
+	
+	providerPage.DeleteProvider = function() {
+		alert("del");
+	};
+</script>
+</body>
+</html>
