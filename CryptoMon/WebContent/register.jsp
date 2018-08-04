@@ -8,7 +8,7 @@
 <%@ include file="./common/head.jsp" %>
 </head>
 <body>
-
+<div class="se-pre-con"></div>
 <div class="page-wrapper">
 	<%@ include file="./common/top_nav.jsp" %>
 	
@@ -58,7 +58,7 @@
 		                    <div class="form-group">
 		                      <label class="password col-md-12">
 		                      	<input type="password" name="password" id="password" class="form-control input-lg" placeholder="Password" tabindex="5">
-		                      	<span class="error">*This is not a valid password.</span> <span class="empty">*This field is required.</span>
+		                      	<span class="error">*Password should be at least 8 characters long and contain at least 1 lower case, 1 upper case, 1 number and 1 special char(@, #, $, %, *, ;, ., &) .</span> <span class="empty">*This field is required.</span>
 		                      </label>
 		                    </div>
 		                  </div>
@@ -112,9 +112,13 @@ page.GetFormData = function(form) {
 page.GetValidationData = function() {
 	return {
 		".name":{rx:/^[a-zA-Z'][a-zA-Z-' ]+[a-zA-Z']?$/,target:'input'},
-		".password":{rx:/^[a-zA-Z'][a-zA-Z-' ]+[a-zA-Z']?$/,target:'input'},
+		".password":{rx:/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*\;\.\,])(?=.{8,})/i,target:'input'},
 		".email":{rx:/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i,target:'input'}
 	};
+};
+
+page.FormOnSuccess = function() {
+	window.location = "login.jsp";
 };
 
 </script>

@@ -126,7 +126,7 @@ p.fontsize-lg { line-height:1.8 }
 /* MAIN TITLE                            */
 /* ===================================== */
 
-h2.section-title { background: #3451c6 none repeat scroll 0 0; color: #ffffff; font-size: 32px; font-weight: 600; line-height: 42px; margin-bottom: 80px; margin-top: -80px; padding: 40px 0; position: relative; text-align: center; z-index: 100; }
+h2.section-title { background: #3451c6 none repeat scroll 0 0; color: #ffffff; font-size: 32px; font-weight: 600; line-height: 42px; margin-bottom: 80px; margin-top: -80px; padding: 40px 0; position: relative; text-align: center; z-index: 90; }
 @media (max-width: 980px) {
 h2.section-title { font-size: 23px; line-height: 31px; }
 }
@@ -2368,6 +2368,7 @@ width:100%;
 .no-js #loader { display: none;  }
 .js #loader { display: block; position: absolute; left: 100px; top: 0; }
 .se-pre-con {
+	display:none;
 	position: fixed;
 	left: 0px;
 	top: 0px;

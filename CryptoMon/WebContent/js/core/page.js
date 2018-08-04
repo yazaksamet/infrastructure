@@ -36,23 +36,6 @@ page.PreparePage = function() {
 	
 };
 
-page.ShowMessage = function(messageType, messageText) {
-	switch(messageType) {
-	case "error":
-		page.ShowError(messageText);
-		break;
-	case "info":
-		page.ShowInfo(messageText);
-		break;
-	case "success":
-		page.ShowSuccess(messageText);
-		break;
-	case "warning":
-		page.ShowWarning(messageText);
-		break;
-	}
-};
-
 page.GetFormData = function(form) {
 	return null;
 };

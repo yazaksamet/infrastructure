@@ -90,17 +90,18 @@
 					}
 					,submitFu:function(){
 						_.validateFu(_.labels)							
-						if(!_.form.has('.'+_.invalidCl).length)
+						if(!_.form.has('.'+_.invalidCl).length) {
 							var params = {
 								Url : _.formHandlerURL,
 								Async : false,
 								Method : "POST",
 								Data : page.GetFormData(_),
-								OnSuccess : page.FormOnSuccess(),
+								OnSuccess : page.FormOnSuccess,
 								ShowLoading : true,
 								ShowAlert : true
 							};
-							AjaxCall.Get(params);			
+							AjaxCall.Get(params);
+						}
 					},
 					showFu:function(){
 						_.success.slideDown(function(){

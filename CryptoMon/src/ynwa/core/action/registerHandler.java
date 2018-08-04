@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import ynwa.core.data.UserEntity;
 import ynwa.core.entity.User;
+import ynwa.core.helper.PasswordService;
 
 @WebServlet("/registerHandler")
 public class registerHandler extends HttpServlet {
@@ -39,6 +40,10 @@ public class registerHandler extends HttpServlet {
 		user.setUserId(tranUId.toString());
 		user.setName(request.getParameter("firstName"));
 		user.setLastName(request.getParameter("lastName"));
+		
+		PasswordService pws = new PasswordService();
+		String encryptedPass = pws.encrypt(user.getPassword());
+		user.setPassword(encryptedPass);
 		
 		UserEntity entitySaver = new UserEntity();
 		entitySaver.Insert(user);

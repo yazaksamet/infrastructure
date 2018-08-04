@@ -22,8 +22,21 @@
                 <div class="cat-title"></div>
                 <ul class="owl-menu menu-content">
                   <!--=========== Single Menu ===============-->
-                  <li class="single-dropdown"> <a class="active" href="index.jsp">Home</a>
+                  <li class="single-dropdown"> <a href="index.jsp">Home</a>
                   </li>
+                  
+                  <% if (session.getAttribute("user") != null) { %>
+					    <li class="single-dropdown"> <a class="active" href="#">Welcome, ${user.getLoginName()}!</a>
+		                  	<ul class="owl-nav-list-single">
+		                  		<li class="single-dropdown"><a href="loginHandler?logout=true">Logout</a> </li>
+		                  	</ul>
+		                  </li>
+					<% } else {%>
+					    <li class="single-dropdown"> <a class="active" href="login.jsp">Login</a>
+		                  </li>
+					<% } %>
+                  
+                  
                 </ul>
               </div>
             </div>
