@@ -1,4 +1,4 @@
-package ynwa.currency.entity;
+package ynwa.core.entity;
 
 import java.util.Date;
 
@@ -9,9 +9,23 @@ public class User {
 	private String password;
 	private Date entryDate;
 	private Date lastLoginDate;
-	private Date lastUpdateDate;
+	private Date updateDate;
 	private int status;
+	private String name;
+	private String lastName;
 	
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getLastName() {
+		return lastName;
+	}
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
 	public Date getEntryDate() {
 		return entryDate;
 	}
@@ -24,11 +38,11 @@ public class User {
 	public void setLastLoginDate(Date lastLoginDate) {
 		this.lastLoginDate = lastLoginDate;
 	}
-	public Date getLastUpdateDate() {
-		return lastUpdateDate;
+	public Date getUpdateDate() {
+		return updateDate;
 	}
-	public void setLastUpdateDate(Date lastUpdateDate) {
-		this.lastUpdateDate = lastUpdateDate;
+	public void setUpdateDate(Date updateDate) {
+		this.updateDate = updateDate;
 	}
 	public int getStatus() {
 		return status;
@@ -59,6 +73,10 @@ public class User {
 	}
 	public void setPassword(String password) {
 		this.password = password;
+	}
+	
+	public void Validate() {
+		
 	}
 	
 }

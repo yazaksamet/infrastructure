@@ -12,20 +12,12 @@
 					successCl:'success',
 					successShow:'4000',
 					formHandlerURL:page.ApplicationDomain + "formHandler",
-					ownerEmail:'owltemplates.com@gmail.com',
 					stripHTML:true,
 					smtpMailServer:'localhost',
 					targets:'input,textarea',
 					controls:'a[data-type=reset],a[data-type=submit]',
 					validate:true,
-					rx:{
-						".name":{rx:/^[a-zA-Z'][a-zA-Z-' ]+[a-zA-Z']?$/,target:'input'},
-						".state":{rx:/^[a-zA-Z'][a-zA-Z-' ]+[a-zA-Z']?$/,target:'input'},
-						".email":{rx:/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i,target:'input'},
-						".phone":{rx:/^\+?(\d[\d\-\+\(\) ]{5,}\d$)/,target:'input'},
-						".fax":{rx:/^\+?(\d[\d\-\+\(\) ]{5,}\d$)/,target:'input'},
-						".message":{rx:/.{20}/,target:'textarea'}
-					},
+					rx:page.GetValidationData(),
 					preFu:function(){
 						_.labels.each(function(){
 							var label=$(this),
@@ -99,23 +91,16 @@
 					,submitFu:function(){
 						_.validateFu(_.labels)							
 						if(!_.form.has('.'+_.invalidCl).length)
-							$.ajax({
-								type: "POST",
-								url:_.formHandlerURL,
-								data:{
-									name:_.getValFromLabel($('.name',_.form)),
-									email:_.getValFromLabel($('.email',_.form)),
-									phone:_.getValFromLabel($('.phone',_.form)),
-									fax:_.getValFromLabel($('.fax',_.form)),
-									state:_.getValFromLabel($('.state',_.form)),
-									message:_.getValFromLabel($('.message',_.form)),
-									owner_email:_.ownerEmail,
-									stripHTML:_.stripHTML
-								},
-								success: function(){
-									_.showFu()
-								}
-							})			
+							var params = {
+								Url : _.formHandlerURL,
+								Async : false,
+								Method : "POST",
+								Data : page.GetFormData(_),
+								OnSuccess : page.FormOnSuccess(),
+								ShowLoading : true,
+								ShowAlert : true
+							};
+							AjaxCall.Get(params);			
 					},
 					showFu:function(){
 						_.success.slideDown(function(){
@@ -182,7 +167,7 @@
 	}
 })(jQuery)
 $(window).load(function(){
-	$('.form1').forms({
-		ownerEmail:'owltemplates.com@gmail.com'
+	$('.form1, .form2').forms({
+		
 	})
 })

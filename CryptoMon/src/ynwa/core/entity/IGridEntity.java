@@ -1,4 +1,4 @@
-package ynwa.currency.entity;
+package ynwa.core.entity;
 
 public interface IGridEntity {
 	String[] GetColumnNames();

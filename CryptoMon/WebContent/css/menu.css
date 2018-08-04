@@ -1210,3 +1210,5 @@ the right position for the arrow
 .user_register input[type="checkbox"] + label { }
 
 .user_register .checkbox { clear: both; margin-bottom: 10px; overflow: hidden; }
+
+.fixed_menu { background: none repeat scroll 0 0 rgba(0, 0, 0, 0.86); width: 100%; }

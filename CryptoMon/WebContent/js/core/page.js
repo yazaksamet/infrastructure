@@ -1,7 +1,7 @@
 var page = {};
 page.Identity = "blank";
 page.Data = {};
-page.ApplicationDomain = "/CryptoMon/";
+page.ApplicationDomain = "/Infrastructure/";
 
 page.SetPageLoading = function() {
 	$(".se-pre-con").show();;
@@ -30,7 +30,7 @@ page.LoadPageInitials = function() {
 
 page.SetData = function(data) {
 	page.Data = eval(data);
-}
+};
 
 page.PreparePage = function() {
 	
@@ -51,20 +51,16 @@ page.ShowMessage = function(messageType, messageText) {
 		page.ShowWarning(messageText);
 		break;
 	}
-}
+};
 
-page.ShowError = function(messageText) {
-	
-}
+page.GetFormData = function(form) {
+	return null;
+};
 
-page.ShowInfo = function(messageText) {
-	
-}
+page.GetValidationData = function() {
+	return null;
+};
 
-page.ShowWarning = function(messageText) {
-	
-}
-
-page.ShowSuccess = function(messageText) {
-	
-}
+page.FormOnSuccess = function() {
+	return null;
+};

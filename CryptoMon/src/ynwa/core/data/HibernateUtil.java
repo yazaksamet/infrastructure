@@ -1,4 +1,4 @@
-package ynwa.currency.source;
+package ynwa.core.data;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;

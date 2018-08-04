@@ -1,4 +1,4 @@
-package ynwa.currency.source;
+package ynwa.core.helper;
 
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;

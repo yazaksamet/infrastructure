@@ -13,8 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 
-import ynwa.currency.entity.*;
-import ynwa.currency.source.*;
+import ynwa.core.data.*;
+import ynwa.core.entity.*;
 
 @WebServlet("/pageload")
 public class pageload extends HttpServlet {
@@ -29,7 +29,7 @@ public class pageload extends HttpServlet {
 		String pageIdentity = request.getParameter("pageIdentity");
 		JsonObject jsonObject = new JsonObject();
 		
-		switch (pageIdentity) {
+		/*switch (pageIdentity) {
 			case "providers":
 				IStorageHelper storage = new MySqlHelper();
 				List<Provider> providers = storage.SelectProviders();
@@ -41,7 +41,7 @@ public class pageload extends HttpServlet {
 				break;
 			default:
 				break;
-		}
+		}*/
 		
 	    response.setContentType("application/json");
 	    response.setCharacterEncoding("UTF-8");

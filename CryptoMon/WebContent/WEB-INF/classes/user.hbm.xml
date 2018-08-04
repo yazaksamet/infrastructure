@@ -5,7 +5,7 @@
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-    <class name="ynwa.currency.entity.User" table="Users">
+    <class name="ynwa.core.entity.User" table="Users">
         <id name="loginName" column="login_name">
             <generator class="assigned"/>
         </id>
@@ -20,7 +20,9 @@
         </property>
         <property name="entryDate" type="timestamp" column="entry_date"/>
         <property name="lastLoginDate" type="timestamp" column="last_login_date"/>
-        <property name="lastUpdateDate" type="timestamp" column="last_update_date"/>
+        <property name="updateDate" type="timestamp" column="update_date"/>
         <property name="status" type="int" column="status"/>
+        <property name="name" column="name"/>
+        <property name="lastName" column="last_name"/>
     </class>
 </hibernate-mapping>
