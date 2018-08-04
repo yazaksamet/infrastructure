@@ -19,7 +19,7 @@
 			<div class="row">
 				<div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
 		            <div class="box-style cont-pad">
-		              <form class="form2">
+		              <form class="row form1">
 		              	<input type="hidden" value="registerHandler" id="formActionType" />
 		                <h2>Please Sign Up <small>It's free and always will be.</small></h2>
 		                <hr class="colorgraph">
