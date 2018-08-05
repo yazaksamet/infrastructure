@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import ynwa.core.data.UserEntity;
+import ynwa.core.data.UserManager;
 import ynwa.core.entity.User;
 import ynwa.core.helper.PasswordService;
 
@@ -33,7 +33,7 @@ public class myaccountHandler extends HttpServlet {
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
 		
-		UserEntity entitySaver = new UserEntity();
+		UserManager entitySaver = new UserManager();
 		User currentUser = entitySaver.Select(userId); 
 		
 		if (currentUser != null) {

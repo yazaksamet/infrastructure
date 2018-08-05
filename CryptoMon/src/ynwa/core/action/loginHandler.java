@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import ynwa.core.data.UserEntity;
+import ynwa.core.data.UserManager;
 import ynwa.core.entity.*;
 import ynwa.core.helper.PasswordService;
 
@@ -69,7 +69,7 @@ public class loginHandler extends HttpServlet {
 			String encryptedPass = pws.encrypt(password);
 			
 			//create a user helper class to make database calls, and call authenticate user method
-			UserEntity userStorage = new UserEntity();
+			UserManager userStorage = new UserManager();
 			User user = userStorage.GetUserWithPassword(loginName, encryptedPass);
 
 			//we've found a user that matches the credentials

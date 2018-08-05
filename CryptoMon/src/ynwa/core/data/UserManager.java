@@ -6,7 +6,7 @@ import org.hibernate.query.Query;
 
 import ynwa.core.entity.User;
 
-public class UserEntity extends DbEntity<User> {
+public class UserManager extends DbEntity<User> {
 
 	@Override
 	public void ValidateSave(User entity) {

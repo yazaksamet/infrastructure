@@ -1,3 +1,4 @@
+<%@page import="ynwa.core.cache.Cache"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <header>
@@ -26,7 +27,7 @@
                   </li>
                   
                   <% if (session.getAttribute("user") != null) { %>
-					    <li class="single-dropdown"> <a class="active" href="#">Welcome, ${user.getLoginName()}!</a>
+					    <li class="single-dropdown"> <a class="active" href="#"> <%= Cache.MultiLanguage.GetValue("welcome", "tr-TR") %>, ${user.getLoginName()}!</a>
 		                  	<ul class="owl-nav-list-single">
 		                  		<li class="single-dropdown"><a href="loginHandler?logout=true">Logout</a> </li>
 		                  		<li class="single-dropdown"><a href="myaccount.jsp">My Account</a> </li>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="ynwa.core.entity.MLString" table="MLStrings">
+        <id name="id" column="string_id" type="int">
+            <generator class="increment"/>
+        </id>
+        <property name="value" column="ml_value"/>
+        <property name="key" column="ml_key"/>
+        <property name="language" column="ml_lang"/>
+    </class>
+</hibernate-mapping>
