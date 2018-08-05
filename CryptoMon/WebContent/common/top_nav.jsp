@@ -29,6 +29,7 @@
 					    <li class="single-dropdown"> <a class="active" href="#">Welcome, ${user.getLoginName()}!</a>
 		                  	<ul class="owl-nav-list-single">
 		                  		<li class="single-dropdown"><a href="loginHandler?logout=true">Logout</a> </li>
+		                  		<li class="single-dropdown"><a href="myaccount.jsp">My Account</a> </li>
 		                  	</ul>
 		                  </li>
 					<% } else {%>

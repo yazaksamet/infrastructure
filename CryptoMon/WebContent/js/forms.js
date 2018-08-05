@@ -22,12 +22,12 @@
 						_.labels.each(function(){
 							var label=$(this),
 								inp=$(_.targets,this),
-								defVal=inp.val(),
+								defVal= !page.FormHasInitial ? inp.val() : inp.attr('placeholder'),
 								trueVal=(function(){
 											var tmp=inp.is('input')?(tmp=label.html().match(/value=['"](.+?)['"].+/),!!tmp&&!!tmp[1]&&tmp[1]):inp.html()
 											return defVal==''?defVal:tmp
 										})()
-							trueVal!=defVal
+							trueVal!=defVal && !page.FormHasInitial
 								&&inp.val(defVal=trueVal||defVal)
 							label.data({defVal:defVal})								
 							inp
@@ -62,7 +62,7 @@
 					},
 					isEmpty:function(el){
 						var tmp
-						return (tmp=el.find(_.targets).val())==''||tmp==el.data('defVal')
+						return (tmp=el.find(_.targets).val())==''|| tmp==el.data('defVal')
 					},
 					validateFu:function(el){							
 						el.each(function(){

@@ -1,6 +1,7 @@
 package ynwa.core.action;
 
 import java.io.IOException;
+import java.util.Date;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -77,6 +78,8 @@ public class loginHandler extends HttpServlet {
 				session.invalidate();
 				session=request.getSession(true);
 				session.setAttribute("user", user);
+				user.setLastLoginDate(new Date());
+				userStorage.Update(user);
 			}
 			// user doesn't exist, redirect to previous page and show error
 			else{

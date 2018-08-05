@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
@@ -28,20 +29,20 @@ public class pageload extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String pageIdentity = request.getParameter("pageIdentity");
 		JsonObject jsonObject = new JsonObject();
+		HttpSession session = request.getSession();
 		
-		/*switch (pageIdentity) {
-			case "providers":
-				IStorageHelper storage = new MySqlHelper();
-				List<Provider> providers = storage.SelectProviders();
-				String json = new Gson().toJson(providers);
-				String[] providerCols = new Provider().GetColumnNames();
-				String providerColJson = new Gson().toJson(providerCols);
-				jsonObject.addProperty("providers", json);
-				jsonObject.addProperty("providerCols", providerColJson);
+		switch (pageIdentity) {
+			case "myaccount":
+				User currentUser = (User) session.getAttribute("user");
+				if (currentUser != null) {
+					currentUser.setPassword("***");
+					String userJson = new Gson().toJson(currentUser);
+					jsonObject.addProperty("currentUser", userJson);
+				}
 				break;
 			default:
 				break;
-		}*/
+		}
 		
 	    response.setContentType("application/json");
 	    response.setCharacterEncoding("UTF-8");

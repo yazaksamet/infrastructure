@@ -2,6 +2,7 @@ var page = {};
 page.Identity = "blank";
 page.Data = {};
 page.ApplicationDomain = "/Infrastructure/";
+page.FormHasInitial = false;
 
 page.SetPageLoading = function() {
 	$(".se-pre-con").show();;

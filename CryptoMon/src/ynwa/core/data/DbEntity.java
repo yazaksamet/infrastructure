@@ -33,7 +33,7 @@ public abstract class DbEntity<T> {
 		
 		Session session = HibernateUtil.getSessionFactory().openSession();		 
         session.beginTransaction();
-        session.save(entity);
+        session.update(entity);
         session.getTransaction().commit();
         session.close();
         log.debug("update completed: " + entity.getClass().getName());

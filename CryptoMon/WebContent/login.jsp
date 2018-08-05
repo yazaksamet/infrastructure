@@ -77,7 +77,7 @@ page.GetValidationData = function() {
 };
 
 page.FormOnSuccess = function() {
-	window.location = "index.jsp";
+	window.location = "myaccount.jsp";
 };
 
 </script>
