@@ -1,5 +1,6 @@
 package ynwa.core.cache;
 
+import java.util.Dictionary;
 import java.util.HashMap;
 import java.util.List;
 
@@ -18,6 +19,17 @@ public abstract class CacheBase<T, K, V> {
 	public abstract K GenerateKey(T entity);
 	public abstract V GenerateValue(T entity);
 	public abstract V GetDefaultValue();
+	
+	public HashMap<K, V> GetCacheMap() {
+		if (cacheMap == null || cacheMap.size() == 0) {
+			LoadAll();
+		}
+		return cacheMap;
+	}
+	
+	public void ClearCache() {
+		this.cacheMap = null;
+	}
 	
 	public void LoadAll() {
 		if (cacheMap == null) {

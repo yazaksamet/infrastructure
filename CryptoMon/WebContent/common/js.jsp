@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!-- Javascript -->
 <script type="text/javascript" src="js/jquery.js"></script>
 <!-- Twitter Bootstrap -->
@@ -28,3 +28,6 @@
 <script type="text/javascript" src="js/components/Grid.js"></script>
 <script type="text/javascript" src="js/components/Button.js"></script>
 <script type="text/javascript" src="js/components/AlertBox.js"></script>
+<script>
+  var menu = new owlTooltipMenu(document.getElementById('owl-tt-menu'));
+</script>

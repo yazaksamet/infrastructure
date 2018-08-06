@@ -893,7 +893,7 @@ top: 24px;
 =========================================================================*/
 
 
-.header_top { background: rgba(0, 0, 0, 0.3) none repeat scroll 0 0; border-bottom: 1px solid rgba(255, 255, 255, 0.1); display: inline-block; overflow: visible; width: 100%; }
+.header_top { background: rgba(0, 0, 0, 1) none repeat scroll 0 0; border-bottom: 1px solid rgba(255, 255, 255, 0.1); overflow: visible; width: 100%; }
 
 @media (max-width:360px) {
 .header_top { display: none; }

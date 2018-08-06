@@ -1,10 +1,12 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+
+<%@ include file="./common/session.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Register now</title>
+<title><%= Cache.MultiLanguage.GetValue("registernow", currentLang) %></title>
 <%@ include file="./common/head.jsp" %>
 </head>
 <body>
@@ -13,7 +15,7 @@
 	<%@ include file="./common/top_nav.jsp" %>
 	
 	<div class="third">
-		<h2 class="section-title">Register now</h2>
+		<h2 class="section-title"><%= Cache.MultiLanguage.GetValue("registernow", currentLang) %></h2>
 		<div class="container">
 			<div id="MessagePanel"></div>
 			<div class="row">
@@ -21,14 +23,14 @@
 		            <div class="box-style cont-pad">
 		              <form class="row form1">
 		              	<input type="hidden" value="registerHandler" id="formActionType" />
-		                <h2>Please Sign Up <small>It's free and always will be.</small></h2>
+		                <h2><%= Cache.MultiLanguage.GetValue("pleasesignup", currentLang) %> <small><%= Cache.MultiLanguage.GetValue("signupisfree", currentLang) %></small></h2>
 		                <hr class="colorgraph">
 		                <div class="row">
 		                  <div class="col-xs-6 col-sm-6 col-md-6">
 		                    <div class="form-group">
 		                      <label class="name col-md-12">
 		                      	<input type="text" name="first_name" id="first_name" class="form-control input-lg" placeholder="First Name" tabindex="1">
-		                      	<span class="error">*This is not a valid first name.</span> <span class="empty">*This field is required.</span> 
+		                      	<span class="error">*This is not a valid first name.</span> <span class="empty"><%= Cache.MultiLanguage.GetValue("requiredfield", currentLang) %></span> 
 		                      </label>
 		                    </div>
 		                  </div>
@@ -36,7 +38,7 @@
 		                    <div class="form-group">
 		                      <label class="name col-md-12">
 		                      	<input type="text" name="last_name" id="last_name" class="form-control input-lg" placeholder="Last Name" tabindex="2">
-		                      	<span class="error">*This is not a valid last name.</span> <span class="empty">*This field is required.</span>
+		                      	<span class="error">*This is not a valid last name.</span> <span class="empty"><%= Cache.MultiLanguage.GetValue("requiredfield", currentLang) %></span>
 		                      </label>
 		                    </div>
 		                  </div>
@@ -44,13 +46,13 @@
 		                <div class="form-group">
 		                  <label class="name col-md-12">
 		                  	<input type="text" name="login_name" disabled="disabled" id="login_name" class="form-control input-lg" placeholder="Login Name" tabindex="3">
-		                  	<span class="error">*This is not a valid login name.</span> <span class="empty">*This field is required.</span>
+		                  	<span class="error">*This is not a valid login name.</span> <span class="empty"><%= Cache.MultiLanguage.GetValue("requiredfield", currentLang) %></span>
 		                  </label>
 		                </div>
 		                <div class="form-group">
 		                  <label class="email col-md-12">
 		                  	<input type="email" name="email" id="email" class="form-control input-lg" placeholder="Email Address" tabindex="4">
-		                  	<span class="error">*This is not a valid email.</span> <span class="empty">*This field is required.</span>
+		                  	<span class="error">*This is not a valid email.</span> <span class="empty"><%= Cache.MultiLanguage.GetValue("requiredfield", currentLang) %></span>
 		                  </label>
 		                </div>
 		                <div class="row">
@@ -58,7 +60,7 @@
 		                    <div class="form-group">
 		                      <label class="password col-md-12">
 		                      	<input type="password" name="password" id="password" class="form-control input-lg" placeholder="Password" tabindex="5">
-		                      	<span class="error">*Password should be at least 8 characters long and contain at least 1 lower case, 1 upper case, 1 number and 1 special char(@, #, $, %, *, ;, ., &) .</span> <span class="empty">*This field is required.</span>
+		                      	<span class="error">*Password should be at least 8 characters long and contain at least 1 lower case, 1 upper case, 1 number and 1 special char(@, #, $, %, *, ;, ., &) .</span> <span class="empty"><%= Cache.MultiLanguage.GetValue("requiredfield", currentLang) %></span>
 		                      </label>
 		                    </div>
 		                  </div>
@@ -66,7 +68,7 @@
 		                    <div class="form-group">
 		                      <label class="password col-md-12">
 		                      	<input type="password" name="password_confirmation" id="password_confirmation" class="form-control input-lg" placeholder="Confirm Password" tabindex="6">
-		                      	<span class="error">*Password should be at least 8 characters long and contain at least 1 lower case, 1 upper case, 1 number and 1 special char(@, #, $, %, *, ;, ., &) .</span> <span class="empty">*This field is required.</span>
+		                      	<span class="error">*Password should be at least 8 characters long and contain at least 1 lower case, 1 upper case, 1 number and 1 special char(@, #, $, %, *, ;, ., &) .</span> <span class="empty"><%= Cache.MultiLanguage.GetValue("requiredfield", currentLang) %></span>
 		                      </label>
 		                    </div>
 		                  </div>

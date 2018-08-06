@@ -20,5 +20,6 @@
         <property name="show_sql">true</property>
         <mapping resource="user.hbm.xml" />
         <mapping resource="mlstring.hbm.xml" />
+        <mapping resource="lang.hbm.xml" />
     </session-factory>
 </hibernate-configuration>

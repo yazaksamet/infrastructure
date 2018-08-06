@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="ynwa.core.entity.Language" table="Languages">
+        <id name="id" column="lang_id" type="int">
+            <generator class="increment"/>
+        </id>
+        <property name="name" column="lang_name"/>
+        <property name="shortCode" column="short_code"/>
+        <property name="css" column="css"/>
+    </class>
+</hibernate-mapping>
