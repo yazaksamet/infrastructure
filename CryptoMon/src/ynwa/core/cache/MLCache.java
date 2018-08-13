@@ -36,4 +36,7 @@ public class MLCache extends CacheBase<MLString, String, String> {
 		return this.Get(language + "@" +  key);
 	}
 	
+	public String GetTestString() {
+		return "þimdi kaydol";
+	}
 }

@@ -1,6 +1,10 @@
 <%@page import="ynwa.core.cache.*"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ page session="true" %>
+
 <header>
     <div class="header_top">
       <div class="container">
@@ -48,23 +52,23 @@
                 <div class="cat-title"></div>
                 <ul class="owl-menu menu-content">
                   <!--=========== Single Menu ===============-->
-                  <li class="single-dropdown"> <a href="index.jsp"><%= Cache.MultiLanguage.GetValue("homepage", currentLang) %></a>
+                  <li class="single-dropdown"> <a href="index.jsp"><fmt:message key="label.homePage" /></a>
                   </li>
                   
                   <% if (session.getAttribute("user") != null) { %>
-					    <li class="single-dropdown"> <a href="#"><%= Cache.MultiLanguage.GetValue("adminpanel", currentLang) %></a>
+					    <li class="single-dropdown"> <a href="#"><fmt:message key="label.adminPanel" /></a>
 					    	<ul class="owl-nav-list-single">
-		                  		<li class="single-dropdown"><a href="string.jsp"><%= Cache.MultiLanguage.GetValue("mldef", currentLang) %></a> </li>
+		                  		<li class="single-dropdown"><a href="string.jsp"><fmt:message key="label.mlDef" /></a> </li>
 		                  	</ul>
                   		</li>
-					    <li class="single-dropdown"> <a class="active" href="#"> <%= Cache.MultiLanguage.GetValue("welcome", currentLang) %>, ${user.getLoginName()}!</a>
+					    <li class="single-dropdown"> <a class="active" href="#"> <fmt:message key="label.welcome" />, ${user.getLoginName()}!</a>
 		                  	<ul class="owl-nav-list-single">
-		                  		<li class="single-dropdown"><a href="loginHandler?logout=true"><%= Cache.MultiLanguage.GetValue("logout", currentLang) %></a> </li>
-		                  		<li class="single-dropdown"><a href="myaccount.jsp"><%= Cache.MultiLanguage.GetValue("myaccount", currentLang) %></a> </li>
+		                  		<li class="single-dropdown"><a href="loginHandler?logout=true"><fmt:message key="label.logout" /></a> </li>
+		                  		<li class="single-dropdown"><a href="myaccount.jsp"><fmt:message key="label.myAccount" /></a> </li>
 		                  	</ul>
 		                  </li>
 					<% } else {%>
-					    <li class="single-dropdown"> <a class="active" href="login.jsp"><%= Cache.MultiLanguage.GetValue("login", currentLang) %></a>
+					    <li class="single-dropdown"> <a class="active" href="login.jsp"><fmt:message key="label.login" /></a>
 		                  </li>
 					<% } %>
                   

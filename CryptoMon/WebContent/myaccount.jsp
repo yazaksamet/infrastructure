@@ -1,11 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="./common/session.jsp" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ page session="true" %>
+
+<fmt:setLocale value="${cookie['lang'].value}"/>
+<fmt:setBundle basename="messages"/>
+
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
-<title>Your Account Info</title>
+
+<title><fmt:message key="label.yourAccountInfo" /></title>
 <%@ include file="./common/head.jsp" %>
 </head>
 <body>
@@ -22,57 +28,57 @@
 		              <% if (session.getAttribute("user") != null) { %>
 		              <form class="row form1">
 		              	<input type="hidden" value="myaccountHandler" id="formActionType" />
-		                <h2>Update your account information</h2>
+		                <h2><fmt:message key="label.updateYourAccountInfo" /></h2>
 		                <hr class="colorgraph">
 		                <div class="form-group">
 		                      <label class="col-md-12">
-		                      	<input type="text" name="user_id" disabled="disabled" id="user_id" value="${user.getUserId()}" class="form-control input-lg" placeholder="User Id" tabindex="0"> 
+		                      	<input type="text" name="user_id" disabled="disabled" id="user_id" value="${user.getUserId()}" class="form-control input-lg" placeholder="<fmt:message key="label.userId" />" tabindex="0"> 
 		                      </label>
 		                </div>
 		                <div class="row">
 		                  <div class="col-xs-6 col-sm-6 col-md-6">
 		                    <div class="form-group">
 		                      <label class="name col-md-12">
-		                      	<input type="text" name="first_name" id="first_name" value="${user.getName()}" class="form-control input-lg" placeholder="First Name" tabindex="1">
-		                      	<span class="error">*This is not a valid first name.</span> <span class="empty">*This field is required.</span> 
+		                      	<input type="text" name="first_name" id="first_name" value="${user.getName()}" class="form-control input-lg" placeholder="<fmt:message key="label.firstName" />" tabindex="1">
+		                      	<span class="error"><fmt:message key="validation.invalidFirstName" /></span> <span class="empty"><fmt:message key="label.requiredField" /></span> 
 		                      </label>
 		                    </div>
 		                  </div>
 		                  <div class="col-xs-6 col-sm-6 col-md-6">
 		                    <div class="form-group">
 		                      <label class="name col-md-12">
-		                      	<input type="text" name="last_name" id="last_name" value="${user.getLastName()}" class="form-control input-lg" placeholder="Last Name" tabindex="2">
-		                      	<span class="error">*This is not a valid last name.</span> <span class="empty">*This field is required.</span>
+		                      	<input type="text" name="last_name" id="last_name" value="${user.getLastName()}" class="form-control input-lg" placeholder="<fmt:message key="label.lastName" />" tabindex="2">
+		                      	<span class="error"><fmt:message key="validation.invalidLastName" /></span> <span class="empty"><fmt:message key="label.requiredField" /></span>
 		                      </label>
 		                    </div>
 		                  </div>
 		                </div>
 		                <div class="form-group">
 		                  <label class="name col-md-12">
-		                  	<input type="text" name="login_name" id="login_name" value="${user.getLoginName()}" class="form-control input-lg" placeholder="Login Name" tabindex="3">
-		                  	<span class="error">*This is not a valid login name.</span> <span class="empty">*This field is required.</span>
+		                  	<input type="text" name="login_name" id="login_name" value="${user.getLoginName()}" class="form-control input-lg" placeholder="<fmt:message key="label.loginName" />" tabindex="3">
+		                  	<span class="error"><fmt:message key="validation.invalidLoginName" /></span> <span class="empty"><fmt:message key="label.requiredField" /></span>
 		                  </label>
 		                </div>
 		                <div class="form-group">
 		                  <label class="email col-md-12">
-		                  	<input type="email" name="email" id="email" class="form-control input-lg" value="${user.getEmail()}" placeholder="Email Address" tabindex="4">
-		                  	<span class="error">*This is not a valid email.</span> <span class="empty">*This field is required.</span>
+		                  	<input type="email" name="email" id="email" class="form-control input-lg" value="${user.getEmail()}" placeholder="<fmt:message key="label.emailAddress" />" tabindex="4">
+		                  	<span class="error"><fmt:message key="validation.invalidEmail" /></span> <span class="empty"><fmt:message key="label.requiredField" /></span>
 		                  </label>
 		                </div>
 		                <div class="row">
 		                  <div class="col-xs-6 col-sm-6 col-md-6">
 		                    <div class="form-group">
 		                      <label class="password col-md-12 notRequired">
-		                      	<input type="password" name="password" id="password" class="form-control input-lg" placeholder="Password" tabindex="5">
-		                      	<span class="error">*Password should be at least 8 characters long and contain at least 1 lower case, 1 upper case, 1 number and 1 special char(@, #, $, %, *, ;, ., &) .</span> <span class="empty">*This field is required.</span>
+		                      	<input type="password" name="password" id="password" class="form-control input-lg" placeholder="<fmt:message key="label.password" />" tabindex="5">
+		                      	<span class="error"><fmt:message key="validation.invalidPassword" /></span> <span class="empty"><fmt:message key="label.requiredField" /></span>
 		                      </label>
 		                    </div>
 		                  </div>
 		                  <div class="col-xs-6 col-sm-6 col-md-6">
 		                    <div class="form-group">
 		                      <label class="password col-md-12 notRequired">
-		                      	<input type="password" name="password_confirmation" id="password_confirmation" class="form-control input-lg" placeholder="Confirm Password" tabindex="6">
-		                      	<span class="error">*Password should be at least 8 characters long and contain at least 1 lower case, 1 upper case, 1 number and 1 special char(@, #, $, %, *, ;, ., &) .</span> <span class="empty">*This field is required.</span>
+		                      	<input type="password" name="password_confirmation" id="password_confirmation" class="form-control input-lg" placeholder="<fmt:message key="label.confirmPassword" />" tabindex="6">
+		                      	<span class="error"><fmt:message key="validation.invalidPassword" /></span> <span class="empty"><fmt:message key="label.requiredField" /></span>
 		                      </label>
 		                    </div>
 		                  </div>
@@ -80,16 +86,16 @@
 		                <hr class="colorgraph">
 		                <div class="row">
 		                  <div class="col-xs-6 col-md-6">
-		                    <a class="btn btn-primary btn-block btn-lg" href="#" data-type="submit">Update</a>
+		                    <a class="btn btn-primary btn-block btn-lg" href="#" data-type="submit"><fmt:message key="label.update" /></a>
 		                  </div>
 		                </div>
 		              </form>
 		              <% } else {%>
 		              		<div class="row">
-			                  	<h2>You are not logged in. To navigate to login page, please click on button below.</h2>
+			                  	<h2><fmt:message key="label.notLoggednIn" /></h2>
 		                		<hr class="colorgraph">
 			                  <div class="col-xs-6 col-md-6">
-			                    <a class="btn btn-primary btn-block btn-lg" href="login.jsp">Login</a>
+			                    <a class="btn btn-primary btn-block btn-lg" href="login.jsp"><fmt:message key="label.login" /></a>
 			                  </div>
 			                </div>
 		              <% } %>
