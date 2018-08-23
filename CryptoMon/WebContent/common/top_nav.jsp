@@ -11,16 +11,17 @@
         <!-- Contact Details -->
         <div id="contact-details">
           <ul>
-            <li><i class="fa fa-phone"></i>support@test.com</li>
-            <li><i class="fa fa-envelope-o"></i> +11 222 430 231</li>
+            <li><i class="fa fa-phone"></i><fmt:message key="label.mail" /></li>
+            <li><i class="fa fa-envelope-o"></i><fmt:message key="label.phone" /></li>
           </ul>
         </div>
         <ul id="owl-tt-menu" class="owl-tt-menu">
-          <li> <a href="#">${userLang.getName()}</a>
+          <li> 
+          	<a href="#"><c:if test="${cookie.containsKey('langName')}">${cookie['langName'].value}</c:if><c:if test="${!cookie.containsKey('langName')}"><fmt:message key="label.defaultLang" /></c:if></a>
             <ul class="owl-tt-submenu">
               <%java.util.HashMap<String, ynwa.core.entity.Language> languageList = Cache.LanguageList.GetCacheMap(); %>
               	<% for (java.util.Map.Entry<String, ynwa.core.entity.Language> entry : languageList.entrySet()) { %>
-				    <li><a href="<%= "index.jsp?lang=" + entry.getKey() %>" class="flags <%=entry.getValue().getCss()%>"><%=entry.getValue().getName()  %></a></li>
+				    <li><a href="<%= "?lang=" + entry.getKey() %>" class="flags <%=entry.getValue().getCss()%>"><%=entry.getValue().getName()  %></a></li>
 				<% } %>
              
             </ul>
@@ -58,7 +59,7 @@
                   <% if (session.getAttribute("user") != null) { %>
 					    <li class="single-dropdown"> <a href="#"><fmt:message key="label.adminPanel" /></a>
 					    	<ul class="owl-nav-list-single">
-		                  		<li class="single-dropdown"><a href="string.jsp"><fmt:message key="label.mlDef" /></a> </li>
+		                  		
 		                  	</ul>
                   		</li>
 					    <li class="single-dropdown"> <a class="active" href="#"> <fmt:message key="label.welcome" />, ${user.getLoginName()}!</a>

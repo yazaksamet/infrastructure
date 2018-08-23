@@ -13,6 +13,9 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import ynwa.core.cache.Cache;
+import ynwa.core.entity.Language;
+
 @WebFilter(filterName = "CookieLocaleFilter", urlPatterns = { "/*" })
 public class CookieLocaleFilter implements Filter {
 
@@ -20,11 +23,14 @@ public class CookieLocaleFilter implements Filter {
         HttpServletRequest req = (HttpServletRequest) request;
         HttpServletResponse res = (HttpServletResponse) response;
 
-        if (req.getParameter("cookieLocale") != null) {
-            Cookie cookie = new Cookie("lang", req.getParameter("cookieLocale"));
+        if (req.getParameter("lang") != null) {
+            Cookie cookie = new Cookie("lang", req.getParameter("lang"));
             res.addCookie(cookie);
+            
+            Language lang = Cache.LanguageList.Get(req.getParameter("lang"));
+            Cookie langName = new Cookie("langName", lang.getName());
+            res.addCookie(langName);
         }
-
         chain.doFilter(request, response);
     }
 

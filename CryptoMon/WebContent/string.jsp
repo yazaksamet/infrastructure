@@ -1,6 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="./common/session.jsp" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ page session="true" %>
+
+<fmt:setLocale value="${cookie['lang'].value}"/>
+<fmt:setBundle basename="messages"/>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,7 +15,7 @@
 <meta http-equiv="x-ua-compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
 
-<title>Mutli Language String Definition</title>
+<title><fmt:message key="label.mlTitle" /></title>
 <%@ include file="./common/head.jsp" %>
 </head>
 <body>
@@ -25,35 +31,35 @@
 		            <div class="box-style cont-pad">
 		              <form class="row form1">
 		              	<input type="hidden" value="mlstringHandler" id="formActionType" />
-		                <h2>Add/update <small>multi language definition</small></h2>
+		                <h2><fmt:message key="label.mlFormHeader" /></h2>
 		                <hr class="colorgraph">
 		                
 		                
 		                <div class="form-group">
 		                  <label class="text col-md-12">
-		                  	<input type="text" name="ml_key" id="ml_key" class="form-control input-lg" placeholder="ML Key" tabindex="1">
-		                  	<span class="error">*This is not a valid text.</span> <span class="empty">*This field is required.</span>
+		                  	<input type="text" name="ml_key" id="ml_key" class="form-control input-lg" placeholder="<fmt:message key="label.mlKey" />" tabindex="1">
+		                  	<span class="error"><fmt:message key="validation.invalidText" /></span> <span class="empty"><fmt:message key="label.requiredField" /></span>
 		                  </label>
 		                </div>
 		                <div class="form-group">
 		                  <label class="text col-md-12">
-		                  	<input type="text" name="ml_lang" id="ml_lang" class="form-control input-lg" placeholder="Language" tabindex="2">
-		                  	<span class="error">*This is not a valid text.</span> <span class="empty">*This field is required.</span>
+		                  	<input type="text" name="ml_lang" id="ml_lang" class="form-control input-lg" placeholder="<fmt:message key="label.language" />" tabindex="2">
+		                  	<span class="error"><fmt:message key="validation.invalidText" /></span> <span class="empty"><fmt:message key="label.requiredField" /></span>
 		                  </label>
 		                </div>
 		                <div class="form-group">
 		                  <label class="text col-md-12">
-		                  	<input type="text" name="ml_value" id="ml_value" class="form-control input-lg" placeholder="ML Value" tabindex="3">
-		                  	<span class="error">*This is not a valid text.</span> <span class="empty">*This field is required.</span>
+		                  	<input type="text" name="ml_value" id="ml_value" class="form-control input-lg" placeholder="<fmt:message key="label.mlValue" />" tabindex="3">
+		                  	<span class="error"><fmt:message key="validation.invalidText" /></span> <span class="empty"><fmt:message key="label.requiredField" /></span>
 		                  </label>
 		                </div>
 		                
 		                <hr class="colorgraph">
 		                <div class="row">
 		                  <div class="col-xs-6 col-md-6">
-		                    <a class="btn btn-primary btn-block btn-lg" href="#" data-type="submit">Save</a>
+		                    <a class="btn btn-primary btn-block btn-lg" href="#" data-type="submit"><fmt:message key="label.save" /></a>
 		                  </div>
-		                  <div class="col-xs-6 col-md-6"><a href="#" class="btn btn-success btn-block btn-lg" data-type="reset">Clear</a></div>
+		                  <div class="col-xs-6 col-md-6"><a href="#" class="btn btn-success btn-block btn-lg" data-type="reset"><fmt:message key="label.clear" /></a></div>
 		                </div>
 		              </form>
 		            </div>

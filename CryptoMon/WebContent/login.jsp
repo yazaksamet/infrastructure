@@ -1,6 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="./common/session.jsp" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ page session="true" %>
+
+<fmt:setLocale value="${cookie['lang'].value}"/>
+<fmt:setBundle basename="messages"/>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,28 +27,19 @@
 				<div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
 		            <div class="box-style cont-pad">
 		              <form class="row form1">
-		                	<h2>Login with your credentials</h2>
+		                	<h2><fmt:message key="label.loginHeader" /></h2>
 		                	<hr class="colorgraph">
 		                  <fieldset>
 		                  <input type="hidden" value="loginHandler" id="formActionType" />
 		                  <label class="name col-md-12">
-		                  <input type="text" value="Login Name:">
-		                  <span class="error">*This is not a valid login name.</span> <span class="empty">*This field is required.</span> </label>
+		                  <input type="text" value="<fmt:message key="label.loginName" />:">
+		                  <span class="error"><fmt:message key="label.invalidLoginName" /></span> <span class="empty"><fmt:message key="label.requiredField" /></span> </label>
 		                  <label class="password col-md-12">
-		                  <input type="password" value="Password:">
-		                  <span class="error">*This is not a valid password.</span> <span class="empty">*This field is required.</span> </label>
-		                 <!--  <label class="email col-md-12">
-		                  <input type="text" value="E-mail:">
-		                  <span class="error">*This is not a valid email address.</span> <span class="empty">*This field is required.</span> </label> -->
-		                  <!-- <label class="phone col-md-12">
-		                  <input type="text" value="Phone:">
-		                  <span class="error">*This is not a valid phone number.</span> <span class="empty">*Please enter Phone</span> </label>
-		                  <label class="message col-md-12">
-		                  <textarea>Message</textarea>
-		                  <span class="error">*The message is too short.</span> <span class="empty">*This field is required.</span> </label> -->
+		                  <input type="password" value="<fmt:message key="label.password" />:">
+		                  <span class="error"><fmt:message key="label.invalidPassword" /></span> <span class="empty"><fmt:message key="label.requiredField" /></span> </label>
 		                  <div class="clear"></div>
-		                  <div class="link-form col-md-12"> <a class="btn style1" href="#" data-type="submit">Login</a> <a class="btn style4" href="forgetpassword.jsp">Forget Password</a>  
-		                  	<a href="register.jsp">Register</a>
+		                  <div class="link-form col-md-12"> <a class="btn style1" href="#" data-type="submit"><fmt:message key="label.login" /></a> <a class="btn style4" href="forgetpassword.jsp"><fmt:message key="label.forgetPassword" /></a>  
+		                  	<a href="register.jsp"><fmt:message key="label.register" /></a>
 		                  </div>
 		                  </fieldset>
 		                </form>

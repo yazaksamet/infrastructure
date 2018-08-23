@@ -26,7 +26,7 @@ public class LangCache extends CacheBase<Language, String, Language> {
 	@Override
 	public Language GetDefaultValue() {
 		Language defaultLang = new Language();
-		defaultLang.setName("Turkce");
+		defaultLang.setName("Türkçe");
 		defaultLang.setShortCode("tr-TR");
 		return defaultLang;
 	}
